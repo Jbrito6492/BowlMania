@@ -1,13 +1,12 @@
 import React from "react";
 import Score from "./Score.jsx";
+import FrameTitle from "./FrameTitle.jsx";
 
-export default function Frame() {
+export default function Frame({ frame }) {
   return (
     <div>
-      <div>title</div>
+      <FrameTitle frame={frame} />
       <Score />
-      <Score />
-      <div>total</div>
     </div>
   );
 }
