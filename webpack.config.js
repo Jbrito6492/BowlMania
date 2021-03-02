@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const SRC_DIR = path.join(__dirname, 'src');
-const PUBLIC_DIR = path.join(__dirname, 'public');
+const DIST_DIR = path.join(__dirname, 'public', 'dist');
 
 module.exports = {
   mode: 'development',
@@ -11,7 +11,7 @@ module.exports = {
     app: `${SRC_DIR}/index.jsx`
   },
   output: {
-    path: PUBLIC_DIR,
+    path: DIST_DIR,
     filename: 'bundle.js'
   },
   module: {
@@ -42,12 +42,11 @@ module.exports = {
     }],
   },
   plugins: [
-    new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: ['!*/favicon.ico'] }),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Score Tracker',
       template: `${SRC_DIR}/templates/index.ejs`,
-      css: path.join(__dirname, 'css', 'globals.css'),
-      favicon: `${PUBLIC_DIR}/favicon.ico`
+      favicon: path.join(__dirname, 'public', 'assets', 'favicon.ico')
     }),
   ]
 };

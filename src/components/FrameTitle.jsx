@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function FrameTitle({ frame }) {
-  return <div>frame {frame}</div>;
+export default function FrameTitle({ title }) {
+  return <div>frame {title}</div>;
 }

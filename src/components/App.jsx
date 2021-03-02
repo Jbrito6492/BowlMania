@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ScoreBoard from "./ScoreBoard.jsx";
 import Frame from "./Frame.jsx";
 
 export default function App() {
@@ -11,7 +12,7 @@ export default function App() {
   const { turn, frame, score } = state;
   return (
     <div>
-      <Frame turn={turn} frame={frame} score={score} />
+      <ScoreBoard turn={turn} frame={frame} score={score} />
     </div>
   );
 }
