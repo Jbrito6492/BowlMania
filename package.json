@@ -2,9 +2,12 @@
   "name": "bowling",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm-run-all --parallel dev:*",
+    "dev:server": "nodemon sever/index.js",
+    "dev:build": "webpack --config webpack.config.js --watch"
   },
   "repository": {
     "type": "git",
@@ -25,6 +28,16 @@
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "morgan": "^1.10.0"
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/preset-react": "^7.12.13",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.1.1",
+    "html-webpack-plugin": "^5.2.0",
+    "morgan": "^1.10.0",
+    "npm-run-all": "^4.1.5",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.24.2",
+    "webpack-cli": "^4.5.0"
   }
 }
