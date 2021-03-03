@@ -7,7 +7,7 @@ export default function FrameContainer({ frameTitle, frameIndex, children }) {
       <div className={styles.title}>
         <p>{frameTitle}</p>
       </div>
-      {children}
+      <div className={styles.childrenContainer}>{children}</div>
     </div>
   );
 }

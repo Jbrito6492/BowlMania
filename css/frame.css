@@ -3,86 +3,95 @@ p {
 }
 
 .container {
-  border-top: solid 1px;
-  border-bottom: solid 1px;
+  border-top: solid 0.06em;
+  border-bottom: solid 0.06em;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   background: yellow;
-  min-height: 20vh;
+  height: 100%;
   text-align: center;
+  flex: 1;
 }
 
 .title {
-  border-bottom: solid .5px;
+  text-align: center;
+  border-bottom: solid 0.03125em;
+  height: 4em;
   width: 100%;
 }
 
 .frame0 {
-  border-bottom-left-radius: 5px;
-  border-top-left-radius: 5px;
-  border-left: solid 1px;
+  border-bottom-left-radius: 0.3em;
+  border-top-left-radius: 0.3em;
+  border-left: solid 0.06em;
 }
 
 .frame1 {
-  border-left: solid 1px;
+  border-left: solid 0.06em;
 }
 
 .frame2 {
-  border-left: solid .5px;
+  border-left: solid 0.03125em;
 }
 
 .frame3 {
-  border-left: solid .5px;
+  border-left: solid 0.03125em;
 }
 
 .frame4 {
-  border-left: solid .5px;
+  border-left: solid 0.03125em;
 }
 
 .frame5 {
-  border-left: solid .5px;
+  border-left: solid 0.03125em;
 }
 
 .frame6 {
-  border-left: solid .5px;
+  border-left: solid 0.03125em;
 }
 
 .frame7 {
-  border-left: solid .5px;
+  border-left: solid 0.03125em;
 }
 
 .frame8 {
-  border-left: solid .5px;
+  border-left: solid 0.03125em;
 }
 
 .frame9 {
-  border-left: solid .5px;
+  border-left: solid 0.03125em;
 }
 
 .frame10 {
-  border-left: solid .5px;
+  border-left: solid 0.03125em;
 }
 
 .frame11 {
-  border-bottom-right-radius: 5px;
-  border-top-right-radius: 5px;
-  border-left: solid .5px;
-  border-right: solid 1px;
+  border-bottom-right-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+  border-left: solid 0.03125em;
+  border-right: solid 0.06em;
 }
 
 .scoreContainer {
   display: flex;
+  height: 2.5em;
   justify-content: space-evenly;
+  align-content: stretch;
+}
+
+.childrenContainer {
+  min-height: 8em;
 }
 
 .attempt2 {
-  border-left: solid .2px;
-  border-bottom: solid .2px;
+  border-left: solid 0.0125em;
+  border-bottom: solid 0.0125em;
 }
 
 .attempt3 {
-  border-left: solid .2px;
-  border-bottom: solid .2px;
+  border-left: solid 0.0125em;
+  border-bottom: solid 0.0125em;
 }

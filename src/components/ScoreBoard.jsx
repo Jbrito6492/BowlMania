@@ -7,26 +7,27 @@ import uuid from "react-uuid";
 import styles from "../../css/scoreboard.css";
 
 export default function ScoreBoard({ playerName }) {
-  const [score, setScore] = useState({
-    frame1: [],
-    frame2: [],
-    frame3: [],
-    frame4: [],
-    frame5: [],
-    frame6: [],
-    frame7: [],
-    frame8: [],
-    frame9: [],
-    frame10: [],
+  const [frame, setFrame] = useState({
+    frame1: { score: [], isActive: true },
+    frame2: { score: [], isActive: false },
+    frame3: { score: [], isActive: false },
+    frame4: { score: [], isActive: false },
+    frame5: { score: [], isActive: false },
+    frame6: { score: [], isActive: false },
+    frame7: { score: [], isActive: false },
+    frame8: { score: [], isActive: false },
+    frame9: { score: [], isActive: false },
+    frame10: { score: [], isActive: false },
   });
 
-  const gameFrames = [...Array(10)].map((el, index) => {
-    return (
-      <div key={uuid()}>
-        <GameFrame frameIndex={index + 1} />
-      </div>
-    );
-  });
+  const gameFrames = [...Array(10)].map((el, index) => (
+    <GameFrame
+      key={uuid()}
+      frameIndex={index + 1}
+      frame={frame}
+      setFrame={setFrame}
+    />
+  ));
 
   return (
     <div className={styles.container}>
