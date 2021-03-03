@@ -6,14 +6,10 @@ import styles from "../../css/scoreboard.css";
 export default function ScoreBoard({ playerName }) {
   return (
     <div className={styles.container}>
-      <div>
-        <h4>Player Name:</h4>
-        <p>{playerName}</p>
-      </div>
-      {[...Array(10)].map((item, index) => {
+      {[...Array(11)].map((item, index) => {
         return (
           <div key={uuid()}>
-            <Frame title={index + 1} />
+            <Frame playerName={playerName} currentFrame={index} />
           </div>
         );
       })}
