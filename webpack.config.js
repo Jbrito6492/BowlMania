@@ -42,7 +42,6 @@ module.exports = {
     }],
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Score Tracker',
       template: `${SRC_DIR}/templates/index.ejs`,
