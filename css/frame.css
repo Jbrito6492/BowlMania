@@ -7,12 +7,16 @@ p {
   border-bottom: solid 1px;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   background: yellow;
+  min-height: 20vh;
+  text-align: center;
 }
 
 .title {
   border-bottom: solid .5px;
+  width: 100%;
 }
 
 .frame0 {
@@ -58,8 +62,27 @@ p {
 }
 
 .frame10 {
+  border-left: solid .5px;
+}
+
+.frame11 {
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
   border-left: solid .5px;
   border-right: solid 1px;
+}
+
+.scoreContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.attempt2 {
+  border-left: solid .2px;
+  border-bottom: solid .2px;
+}
+
+.attempt3 {
+  border-left: solid .2px;
+  border-bottom: solid .2px;
 }
