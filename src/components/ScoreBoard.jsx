@@ -7,8 +7,8 @@ import uuid from "react-uuid";
 import styles from "../../css/scoreboard.css";
 
 export default function ScoreBoard({ playerName }) {
-  const [frame, setFrame] = useState({
-    frame1: { score: [], isActive: true },
+  const [scoreboard, setScoreboard] = useState({
+    frame1: { score: [], isActive: false },
     frame2: { score: [], isActive: false },
     frame3: { score: [], isActive: false },
     frame4: { score: [], isActive: false },
@@ -24,17 +24,21 @@ export default function ScoreBoard({ playerName }) {
     <GameFrame
       key={uuid()}
       frameIndex={index + 1}
-      frame={frame}
-      setFrame={setFrame}
+      scoreboard={scoreboard}
+      setScoreboard={setScoreboard}
     />
   ));
 
   return (
     <div className={styles.container}>
-      <PlayerInfoFrame frameIndex={0} playerName={playerName} />
-      {gameFrames}
-      <TotalScoreFrame frameIndex={11} />
-      <NumberPad />
+      <div className={styles.scoreboard}>
+        <PlayerInfoFrame frameIndex={0} playerName={playerName} />
+        {gameFrames}
+        <TotalScoreFrame frameIndex={11} />
+      </div>
+      <div>
+        <NumberPad />
+      </div>
     </div>
   );
 }

@@ -86,12 +86,18 @@ p {
   min-height: 8em;
 }
 
-.attempt2 {
-  border-left: solid 0.0125em;
-  border-bottom: solid 0.0125em;
+.turn1 {
+  width: 2.5em;
 }
 
-.attempt3 {
-  border-left: solid 0.0125em;
-  border-bottom: solid 0.0125em;
+.turn2 {
+  width: 2.5em;
+  border-left: solid 0.0123em;
+  border-bottom: solid 0.0123em;
+}
+
+.turn3 {
+  width: 2.5em;
+  border-left: solid 0.0123em;
+  border-bottom: solid 0.0123em;
 }

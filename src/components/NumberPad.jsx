@@ -5,11 +5,11 @@ import styles from "../../css/numberpad.css";
 export default function NumberPad({ setScore }) {
   const handleClick = () => {};
 
-  const numberPad = [...Array(10)].map((el, index) => {
+  const numberPad = [...Array(11)].map((el, index) => {
     return (
-      <div key={uuid()}>
-        <button className={styles.button} onClick={handleClick}>
-          {index + 1}
+      <div key={uuid()} className={styles[`btn${index}`]}>
+        <button className={styles.btn} onClick={handleClick}>
+          {index}
         </button>
       </div>
     );
