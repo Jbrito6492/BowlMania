@@ -25,8 +25,10 @@ export default function ScoreBoard() {
     let roll3;
     const frameNum = getCurrentFrame(scoreboard);
     const currentAttempt = getCurrentAttempt(scoreboard);
-    const prevFrameTotal = scoreboard[`frame${frameNum}`].total;
-    const currentFrame = scoreboard[`frame${frameNum}`];
+    const key = `frame${frameNum}`;
+    const prevFrameTotal = scoreboard[key].total;
+    const currentFrame = scoreboard[key];
+    console.log('current frame', currentFrame)
     if (currentAttempt === 1) {
       if (isStrike(value)) {
         frameTotal = isNaN(roll1 + roll2 + roll3) ? null : roll1 + roll2 + roll3;
@@ -36,8 +38,7 @@ export default function ScoreBoard() {
         setScoreboard((prevState) => ({
           ...prevState,
           currentFrame: frameNum + 1,
-          [currentFrame]:
-          {
+          [key]: {
             ...currentFrame,
             total: frameTotal,
             roll1: () => roll1,
@@ -50,7 +51,7 @@ export default function ScoreBoard() {
         setScoreboard((prevState) => ({
           ...prevState,
           currentFrame: frameNum + 1,
-          [currentFrame]:
+          [key]:
           {
             ...currentFrame,
             total: frameTotal,
@@ -63,7 +64,7 @@ export default function ScoreBoard() {
         setScoreboard((prevState) => ({
           ...prevState,
           currentAttempt: currentAttempt + 1,
-          [currentFrame]: {
+          [key]: {
             ...currentFrame,
             total: frameTotal,
             roll2: () => value,
@@ -74,7 +75,7 @@ export default function ScoreBoard() {
         setScoreboard((prevState) => ({
           ...prevState,
           currentAttempt: currentAttempt + 1,
-          [currentFrame]: {
+          [key]: {
             ...currentFrame,
             total: frameTotal,
             roll2: () => value,
