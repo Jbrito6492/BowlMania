@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import FrameContainer from "./FrameContainer.jsx";
 import styles from "../../css/frame.css";
 
-export default function GameFrame({ frameIndex }) {
-  const currentFrame = `frame${frameIndex}`;
-  const currentTurn = 1;
+export default function GameFrame({ frameIndex, scoreboard, setScoreboard }) {
+  const currentFrame = scoreboard[`frame${scoreboard.currentFrame}`];
+  const frameScore = currentFrame.score;
+  const isActive =
+    currentFrame.isActive && scoreboard.currentFrame === frameIndex;
+
   return (
-    <FrameContainer frameIndex={frameIndex} frameTitle={`Frame ${frameIndex}`}>
+    <FrameContainer
+      frameClass={isActive ? "active" : "inactive"}
+      frameIndex={frameIndex}
+      frameTitle={`Frame ${frameIndex}`}
+    >
       <div className={styles.scoreContainer}>
         {frameIndex === 10 ? (
           <>
