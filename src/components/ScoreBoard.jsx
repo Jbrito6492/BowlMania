@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import PlayerInfoFrame from "./PlayerInfoFrame.jsx";
-import GameFrame from "./GameFrame.jsx";
+import MappedGameFrame from "./MappedGameFrame.jsx";
 import TotalScoreFrame from "./TotalScoreFrame.jsx";
 import NumberPad from "./NumberPad.jsx";
-import uuid from "react-uuid";
 import styles from "../../css/scoreboard.css";
 
 export default function ScoreBoard({ playerName }) {
@@ -23,20 +22,14 @@ export default function ScoreBoard({ playerName }) {
     total: 0,
   });
 
-  const gameFrames = [...Array(10)].map((el, index) => (
-    <GameFrame
-      key={uuid()}
-      frameIndex={index + 1}
-      scoreboard={scoreboard}
-      setScoreboard={setScoreboard}
-    />
-  ));
-
   return (
     <div className={styles.container}>
       <div className={styles.scoreboard}>
         <PlayerInfoFrame frameIndex={0} playerName={playerName} />
-        {gameFrames}
+        <MappedGameFrame
+          scoreboard={scoreboard}
+          setScoreboard={setScoreboard}
+        />
         <TotalScoreFrame frameIndex={11} total={scoreboard.total} />
       </div>
       <div>
