@@ -67,7 +67,7 @@ export default function ScoreBoard() {
             ...currentFrame,
             total: frameTotal,
             roll2: () => value,
-            [roll3]: () => roll2(),
+            roll3: () => roll2(),
           }
         }))
       } else {
