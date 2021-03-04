@@ -3,7 +3,7 @@ export function isStrike(pins) {
 };
 
 export function isSpare(Roll1, Roll2) {
-  return attempt1 + attempt2 === 10 ? true : false;
+  return Roll1 + Roll2 === 10 ? true : false;
 };
 
 //define getters
@@ -19,9 +19,9 @@ export function getTotal(scoreboard) {
   return scoreboard.total;
 };
 
-export function getNextRoll(state) {
 
-};
+
+
 
 
 
