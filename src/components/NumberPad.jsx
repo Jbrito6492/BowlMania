@@ -2,10 +2,11 @@ import React from "react";
 import uuid from "react-uuid";
 import styles from "../../css/numberpad.css";
 
-export default function NumberPad({ setScore }) {
+export default function NumberPad({ takeTurn }) {
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
+    const { value } = e.target;
+    takeTurn(value);
   };
 
   const numberPad = [...Array(11)].map((el, index) => {

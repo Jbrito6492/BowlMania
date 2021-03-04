@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import FrameContainer from "./FrameContainer.jsx";
 import styles from "../../css/frame.css";
 
-export default function GameFrame({ frameIndex, scoreboard, setScoreboard }) {
+export default function GameFrame({ frameIndex, scoreboard }) {
   const currentFrame = scoreboard[`frame${scoreboard.currentFrame}`];
   const frameScore = currentFrame.score;
   const isActive =
