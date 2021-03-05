@@ -8,7 +8,6 @@ import styles from "../../css/scoreboard.css";
 
 export default function ScoreBoard({ playerName }) {
   const { scoreboard, takeTurn } = ScoreBoardHook();
-
   return (
     <div className={styles.container}>
       <div className={styles.scoreboard}>

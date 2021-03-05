@@ -6,7 +6,7 @@ export default function NumberPad({ takeTurn }) {
   const handleClick = (e) => {
     e.preventDefault();
     const { value } = e.target;
-    takeTurn(value);
+    takeTurn(parseInt(value));
   };
 
   const numberPad = [...Array(11)].map((el, index) => {
