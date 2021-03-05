@@ -5,14 +5,13 @@ import styles from "../../css/frame.css";
 export default function GameFrame({ frameIndex, gameIndex, scoreboard }) {
   const { pins, frames } = scoreboard;
   const [isActive, setIsActive] = useState(false);
-
   const currentFrame = scoreboard.frames.length + 1;
 
   useEffect(() => {
+    console.log(pins);
     if (frameIndex === currentFrame) {
       setIsActive(true);
     }
-    // console.log("test2", frames[gameIndex]);
   }, [isActive]);
 
   const populateScore = (roll) => {
