@@ -23,7 +23,6 @@ export default function GameFrame({ frameIndex, gameIndex, scoreboard }) {
   };
 
   const renderScoreBoxes = () => {
-    console.log(gameIndex * 2, frameIndex + gameIndex);
     if (frameIndex === 10) {
       return (
         <>
