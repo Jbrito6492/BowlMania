@@ -6,10 +6,6 @@ export default function GameFrame({ frameIndex, gameIndex, scoreboard }) {
   const { pins, frames } = scoreboard;
   const [isActive, setIsActive] = useState(false);
 
-  const firstAttempt = pins.length % 2 === 0 && pins.length;
-  const prevThrow = pins.slice(-1)[0];
-  const prevTwoThrows = pins.slice(-2)[0];
-  const prevFrame = frames[gameIndex];
   const currentFrame = scoreboard.frames.length + 1;
 
   useEffect(() => {
