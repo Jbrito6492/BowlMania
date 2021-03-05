@@ -34,29 +34,16 @@ export default function GameFrame({ frameIndex, gameIndex, scoreboard }) {
         </>
       );
     } else {
-      if (currentFrame <= gameIndex + 1) {
-        return (
-          <>
-            <div className={styles.turn1}>
-              {populateScore(pins[gameIndex * 2])}
-            </div>
-            <div className={styles.turn2}>
-              {populateScore(pins[frameIndex + gameIndex])}
-            </div>
-          </>
-        );
-      } else {
-        return (
-          <>
-            <div className={styles.turn1}>
-              {populateScore(pins[gameIndex * 2])}
-            </div>
-            <div className={styles.turn2}>
-              {populateScore(pins[frameIndex + gameIndex])}
-            </div>
-          </>
-        );
-      }
+      return (
+        <>
+          <div className={styles.turn1}>
+            {populateScore(pins[gameIndex * 2])}
+          </div>
+          <div className={styles.turn2}>
+            {populateScore(pins[frameIndex + gameIndex])}
+          </div>
+        </>
+      );
     }
   };
 
