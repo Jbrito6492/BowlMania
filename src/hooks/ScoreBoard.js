@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { isStrike, isSpare, isFirstRoll, isFinalFrame, earnedBonusRound } from "../helpers";
+import { isStrike, isSpare, isNewFrame, isFinalFrame, earnedBonusRound } from "../helpers";
 
 export default function ScoreBoard() {
   const [scoreboard, setScoreboard] = useState({
@@ -13,16 +13,19 @@ export default function ScoreBoard() {
   const takeTurn = (value) => {
     const { frames, pins } = scoreboard;
     if (isFinalFrame(frames)) {
-      setScoreboard((prevState) => ({ ...prevState, pins: pins.concat([value]) }));
-      if (isStrike(value) || isSpare(pins)) {
+      if (isStrike(value) || isSpare(pins.slice(-1)[0], value, pins)) {
         if (pins.length === 20) {
-          const currentThrow = pins.concat(value).slice(-3);
-          setScoreboard((prevState) => ({ ...prevState, frames: [...frames, currentThrow], gameOver: true }))
+          const currentThrow = pins.slice(-3);
+          setScoreboard((prevState) => ({ ...prevState, frames: [...frames, currentThrow], pins: pins.concat(value), gameOver: true }))
+        } else {
+          setScoreboard((prevState) => ({ ...prevState, pins: pins.concat(value) }));
         }
       } else {
         if (pins.length === 19) {
-          const currentThrow = pins.concat(value).slice(-2);
-          setScoreboard((prevState) => ({ ...prevState, frames: [...frames, currentThrow], gameOver: true }))
+          const currentThrow = pins.slice(-2);
+          setScoreboard((prevState) => ({ ...prevState, frames: [...frames, currentThrow], pins: pins.concat(value), gameOver: true }))
+        } else {
+          setScoreboard((prevState) => ({ ...prevState, pins: pins.concat(value) }));
         }
       }
     } else {
@@ -31,7 +34,7 @@ export default function ScoreBoard() {
       } else {
         const lastThrow = pins.concat(value).slice(-1)[0];
         const remainingPins = 10 - lastThrow;
-        if (isFirstRoll(pins)) {
+        if (isNewFrame(pins)) {
           setScoreboard((prevState) => ({ ...prevState, pins: pins.concat(value), remainingPins }));
         } else {
           const currentThrow = pins.concat(value).slice(-2);

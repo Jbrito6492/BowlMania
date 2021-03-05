@@ -2,11 +2,11 @@ export function isStrike(pins) {
   return pins === 10 ? true : false;
 };
 
-export function isSpare(Roll1, Roll2) {
-  return Roll1 + Roll2 === 10 ? true : false;
+export function isSpare(roll1, roll2, pins) {
+  return roll1 + roll2 === 10 && !isNewFrame(pins) ? true : false;
 };
 
-export function isFirstRoll(pinsArray) {
+export function isNewFrame(pinsArray) {
   return (pinsArray.length % 2 === 0 ? true : false);
 };
 
