@@ -12,6 +12,7 @@ export default function GameFrame({ frameIndex, gameIndex, scoreboard }) {
     if (frameIndex === currentFrame) {
       setIsActive(true);
     }
+    // console.log("test2", frames[gameIndex]);
   }, [isActive]);
 
   const populateScore = (roll) => {

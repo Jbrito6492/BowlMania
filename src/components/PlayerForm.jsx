@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../../css/playerform.css";
 
 export default function PlayerForm({ state, setState }) {
   const handleChange = (e) => {
@@ -16,7 +17,7 @@ export default function PlayerForm({ state, setState }) {
         Please Enter Player Name:
         <input type="text" name="playerName" onChange={handleChange} required />
       </label>
-      <input type="submit" value="Submit" />
+      <input className={styles.btn} type="submit" value="Submit" />
     </form>
   );
 }
