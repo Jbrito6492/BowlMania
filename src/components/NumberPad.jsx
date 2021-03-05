@@ -2,7 +2,7 @@ import React from "react";
 import uuid from "react-uuid";
 import styles from "../../css/numberpad.css";
 
-export default function NumberPad({ takeTurn }) {
+export default function NumberPad({ takeTurn, remainingPins }) {
   const handleClick = (e) => {
     e.preventDefault();
     const { value } = e.target;
@@ -17,6 +17,7 @@ export default function NumberPad({ takeTurn }) {
           name="number"
           value={index}
           onClick={handleClick}
+          disabled={remainingPins <= index - 1 ? true : false}
         >
           {index}
         </button>

@@ -23,10 +23,13 @@ export default function ScoreBoard({ playerName, setState }) {
       <div className={styles.scoreboard}>
         <PlayerInfoFrame frameIndex={0} playerName={playerName} />
         <MappedGameFrame scoreboard={scoreboard} />
-        <TotalScoreFrame frameIndex={11} total={scoreboard.total} />
+        <TotalScoreFrame frameIndex={11} />
       </div>
       <div>
-        <NumberPad takeTurn={takeTurn} />
+        <NumberPad
+          takeTurn={takeTurn}
+          remainingPins={scoreboard.remainingPins}
+        />
       </div>
       <>
         <button className={styles.btn} onClick={handleRestart}>
