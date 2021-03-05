@@ -9,7 +9,7 @@ export default function App() {
     <div className={styles.container}>
       {state.isReady ? (
         <>
-          <ScoreBoard playerName={state.playerName} />
+          <ScoreBoard playerName={state.playerName} setState={setState} />
         </>
       ) : (
         <PlayerForm state={state} setState={setState} />

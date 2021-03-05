@@ -11,3 +11,10 @@
   justify-content: center;
   background: turquoise;
 }
+
+.btn {
+  width: 10%;
+  padding: 5px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}

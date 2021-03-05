@@ -6,8 +6,18 @@ import NumberPad from "./NumberPad.jsx";
 import ScoreBoardHook from "../hooks/ScoreBoard";
 import styles from "../../css/scoreboard.css";
 
-export default function ScoreBoard({ playerName }) {
-  const { scoreboard, takeTurn } = ScoreBoardHook();
+export default function ScoreBoard({ playerName, setState }) {
+  const { scoreboard, takeTurn, setScoreboard } = ScoreBoardHook();
+  const handleNameChange = (e) => {
+    e.preventDefault();
+    setState(e.target.value);
+  };
+
+  const handleRestart = (e) => {
+    e.preventDefault();
+    setScoreboard({ frames: [], pins: [], totalScore: [] });
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.scoreboard}>
@@ -18,6 +28,14 @@ export default function ScoreBoard({ playerName }) {
       <div>
         <NumberPad takeTurn={takeTurn} />
       </div>
+      <>
+        <button className={styles.btn} onClick={handleRestart}>
+          restart
+        </button>
+        <button className={styles.btn} onClick={handleNameChange}>
+          change name
+        </button>
+      </>
     </div>
   );
 }

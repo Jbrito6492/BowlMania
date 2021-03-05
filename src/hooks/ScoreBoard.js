@@ -19,5 +19,5 @@ export default function ScoreBoard() {
     console.log(scoreboard)
   };
 
-  return { scoreboard, takeTurn }
+  return { scoreboard, takeTurn, setScoreboard }
 };
