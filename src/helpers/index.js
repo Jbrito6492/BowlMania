@@ -7,8 +7,18 @@ export function isSpare(Roll1, Roll2) {
 };
 
 export function isFirstRoll(pinsArray) {
-  return (pinsArray % 2 === 0 ? true : false);
+  return (pinsArray.length % 2 === 0 ? true : false);
 };
+
+
+export function isFinalFrame(framesArray) {
+  return (framesArray.length === 9 ? true : false);
+};
+
+export function earnedBonusRound(pinsArray) {
+  return (pinsArray[18] === 10 || isSpare(pinsArray[18], pinsArray[19]) ? true : false);
+};
+
 
 
 

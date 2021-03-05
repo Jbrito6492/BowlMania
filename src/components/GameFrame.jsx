@@ -8,7 +8,6 @@ export default function GameFrame({ frameIndex, gameIndex, scoreboard }) {
   const currentFrame = scoreboard.frames.length + 1;
 
   useEffect(() => {
-    console.log(pins);
     if (frameIndex === currentFrame) {
       setIsActive(true);
     }
