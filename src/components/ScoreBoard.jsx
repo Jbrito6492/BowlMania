@@ -15,7 +15,7 @@ export default function ScoreBoard({ playerName, setState }) {
 
   const handleRestart = (e) => {
     e.preventDefault();
-    setScoreboard({ frames: [], pins: [], totalScore: [] });
+    setScoreboard({ pins: [], totalScore: [], pinCount: 10, gameOver: false });
   };
 
   return (
