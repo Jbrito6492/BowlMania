@@ -29,7 +29,7 @@ export default function ScoreBoard({ playerName, setState }) {
         <NumberPad
           takeTurn={takeTurn}
           gameOver={scoreboard.gameOver}
-          remainingPins={scoreboard.remainingPins}
+          pinCount={scoreboard.pinCount}
         />
       </div>
       <>

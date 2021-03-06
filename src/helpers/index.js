@@ -10,6 +10,9 @@ export function isNewFrame(count) {
   return (count % 2 === 0 ? true : false);
 };
 
+export function getPinCount(value) {
+  return 10 - value;
+};
 
 export function isFinalFrame(framesArray) {
   return (framesArray.length === 9 ? true : false);
@@ -22,7 +25,7 @@ export function round10StrikeOrSpare(pinsArray) {
 
 export function calculateCurrentFrame(counter) {
   return Math.floor(counter / 2) + 1;
-}
+};
 
 
 

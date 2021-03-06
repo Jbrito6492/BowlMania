@@ -23,15 +23,15 @@ export default function GameFrame({
         <>
           <div className={styles.turn1}>
             {pins[gameIndex * 2]}
-            {scoreIndex1}
+            {roll1}
           </div>
           <div className={styles.turn2}>
             {pins[frameIndex + gameIndex]}
-            {scoreIndex2}
+            {roll2}
           </div>
           <div className={styles.turn3}>
             {pins[frameIndex + gameIndex + 1]}
-            {scoreIndex3}
+            {roll3}
           </div>
         </>
       );

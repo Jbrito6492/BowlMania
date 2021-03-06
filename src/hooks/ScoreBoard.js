@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { isStrike, isSpare, isNewFrame } from "../helpers";
+import { isStrike, isSpare, isNewFrame, getPinCount } from "../helpers";
 import CounterHook from "./Counter";
 
 export default function ScoreBoard() {
@@ -7,7 +7,7 @@ export default function ScoreBoard() {
   const [scoreboard, setScoreboard] = useState({
     pins: [],
     totalScore: [],
-    remainingPins: 10,
+    pinCount: 10,
     gameOver: false
   });
 
@@ -17,15 +17,22 @@ export default function ScoreBoard() {
     while (counter <= 17) {
       let i = counter;
       pinsCopy[i] = roll;
-      setScoreboard((prevState) => ({ ...prevState, pins: pinsCopy }));
-      if (isNewFrame(counter) && isStrike(roll)) {
-        incrementCounter(2);
+      if (isNewFrame(counter)) {
+        if (isStrike(roll)) {
+          incrementCounter(2);
+          setScoreboard((prevState) => ({ ...prevState, pins: pinsCopy }));
+          return;
+        }
+        const pinCount = getPinCount(roll);
+        incrementCounter(1);
+        setScoreboard((prevState) => ({ ...prevState, pins: pinsCopy, pinCount }));
       } else {
         incrementCounter(1);
+        setScoreboard((prevState) => ({ ...prevState, pins: pinsCopy, pinCount: 10 }));
       }
-      break;
+      return;
     }
-  }
+  };
 
   const getTotalScore = () => {
     const { totalScore } = scoreboard;
