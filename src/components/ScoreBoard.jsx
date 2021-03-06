@@ -7,7 +7,7 @@ import ScoreBoardHook from "../hooks/ScoreBoard";
 import styles from "../../css/scoreboard.css";
 
 export default function ScoreBoard({ playerName, setState }) {
-  const { scoreboard, takeTurn, setScoreboard } = ScoreBoardHook();
+  const { scoreboard, counter, takeTurn, setScoreboard } = ScoreBoardHook();
   const handleNameChange = (e) => {
     e.preventDefault();
     setState(e.target.value);
@@ -22,7 +22,7 @@ export default function ScoreBoard({ playerName, setState }) {
     <div className={styles.container}>
       <div className={styles.scoreboard}>
         <PlayerInfoFrame frameIndex={0} playerName={playerName} />
-        <MappedGameFrame scoreboard={scoreboard} />
+        <MappedGameFrame counter={counter} scoreboard={scoreboard} />
         <TotalScoreFrame frameIndex={11} />
       </div>
       <div>

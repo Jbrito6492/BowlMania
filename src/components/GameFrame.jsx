@@ -1,46 +1,50 @@
 import React, { useState, useEffect } from "react";
 import FrameContainer from "./FrameContainer.jsx";
+import uuid from "react-uuid";
 import styles from "../../css/frame.css";
+import { calculateCurrentFrame, isNewFrame } from "../helpers";
 
-export default function GameFrame({ frameIndex, gameIndex, scoreboard }) {
-  const { pins, frames } = scoreboard;
+export default function GameFrame({
+  frameIndex,
+  gameIndex,
+  counter,
+  scoreboard,
+  roll1,
+  roll2,
+  roll3,
+}) {
   const [isActive, setIsActive] = useState(false);
-  const currentFrame = scoreboard.frames.length + 1;
-
-  useEffect(() => {
-    if (frameIndex === currentFrame) {
-      setIsActive(true);
-    }
-  }, [isActive]);
-
-  const populateScore = (roll) => {
-    return roll;
-  };
+  const [content, setContent] = useState(null);
+  const { pins, frames } = scoreboard;
 
   const renderScoreBoxes = () => {
     if (frameIndex === 10) {
       return (
         <>
           <div className={styles.turn1}>
-            {populateScore(pins[gameIndex * 2])}
+            {pins[gameIndex * 2]}
+            {scoreIndex1}
           </div>
           <div className={styles.turn2}>
-            {populateScore(pins[frameIndex + gameIndex])}
+            {pins[frameIndex + gameIndex]}
+            {scoreIndex2}
           </div>
           <div className={styles.turn3}>
-            {populateScore(pins[frameIndex + gameIndex + 1])}
+            {pins[frameIndex + gameIndex + 1]}
+            {scoreIndex3}
           </div>
         </>
       );
     } else {
       return (
         <>
-          <div className={styles.turn1}>
-            {populateScore(pins[gameIndex * 2])}
-          </div>
-          <div className={styles.turn2}>
-            {populateScore(pins[frameIndex + gameIndex])}
-          </div>
+          {[...Array(2)].map((el, index) => {
+            return (
+              <div key={uuid()} className={styles[`turn${index + 1}`]}>
+                {index === 0 ? pins[roll1] : pins[roll2]}
+              </div>
+            );
+          })}
         </>
       );
     }
