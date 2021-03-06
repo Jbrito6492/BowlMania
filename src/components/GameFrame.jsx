@@ -9,7 +9,9 @@ export default function GameFrame({
   gameIndex,
   counter,
   scoreboard,
-  roll1,
+  pin1Idx,
+  pin2Idx,
+  frameIdx,
   roll2,
   roll3,
 }) {
@@ -23,15 +25,15 @@ export default function GameFrame({
         <>
           <div className={styles.turn1}>
             {pins[gameIndex * 2]}
-            {roll1}
+            {}
           </div>
           <div className={styles.turn2}>
             {pins[frameIndex + gameIndex]}
-            {roll2}
+            {}
           </div>
           <div className={styles.turn3}>
             {pins[frameIndex + gameIndex + 1]}
-            {roll3}
+            {}
           </div>
         </>
       );
@@ -41,7 +43,7 @@ export default function GameFrame({
           {[...Array(2)].map((el, index) => {
             return (
               <div key={uuid()} className={styles[`turn${index + 1}`]}>
-                {index === 0 ? pins[roll1] : pins[roll2]}
+                {index === 0 ? pins[frameIdx][index] : pins[frameIdx][index]}
               </div>
             );
           })}
@@ -49,7 +51,7 @@ export default function GameFrame({
       );
     }
   };
-
+  console.log("frame Idx", frameIdx);
   return (
     <FrameContainer frameIndex={frameIndex} frameTitle={`Frame ${frameIndex}`}>
       <div id={`score${frameIndex}`} className={styles.scoreContainer}>

@@ -7,7 +7,13 @@ import ScoreBoardHook from "../hooks/ScoreBoard";
 import styles from "../../css/scoreboard.css";
 
 export default function ScoreBoard({ playerName, setState }) {
-  const { scoreboard, counter, takeTurn, setScoreboard } = ScoreBoardHook();
+  const {
+    scoreboard,
+    counter,
+    takeTurn,
+    setScoreboard,
+    setCounter,
+  } = ScoreBoardHook();
   const handleNameChange = (e) => {
     e.preventDefault();
     setState(e.target.value);
@@ -15,6 +21,7 @@ export default function ScoreBoard({ playerName, setState }) {
 
   const handleRestart = (e) => {
     e.preventDefault();
+    setCounter(0);
     setScoreboard({ pins: [], totalScore: [], pinCount: 10, gameOver: false });
   };
 

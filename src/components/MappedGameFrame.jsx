@@ -16,10 +16,11 @@ export default function MappedGameFrame({ counter, scoreboard }) {
         key={uuid()}
         frameIndex={index + 1}
         gameIndex={index}
-        roll1={index * 2}
-        roll2={index * 2 + 1}
+        frameIdx={index}
+        pin1Idx={index * 2}
+        pin2Idx={index * 2 + 1}
         roll3={isTenthFrame(index) ? index * 2 + 2 : null}
-        counter={counter}
+        pinI={counter}
         scoreboard={scoreboard}
       />
     );
