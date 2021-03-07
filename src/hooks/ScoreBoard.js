@@ -72,8 +72,7 @@ export default function ScoreBoard() {
         setScoreTracker((prevState) => ({ ...prevState, runningTotal: frameTotal + runningTotal, frameScores: [...frameScores, frameTotal + runningTotal] }))
       } else {
         frameTotal = pins[frameCounter][0] + roll;
-        if (frameTotal && frameTotal < 10) {
-          console.log("testing")
+        if (frameTotal < 10) {
           setScoreTracker((prevState) => ({ ...prevState, runningTotal: frameTotal + runningTotal, frameScores: [...frameScores, frameTotal + runningTotal] }))
         }
       }
