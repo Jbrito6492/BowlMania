@@ -22,9 +22,9 @@ export default function ScoreBoard() {
     let pinCount = 10 - roll;
     let hasResetFrame = false;
     let gameOver = false;
-    while (frameCounter < 10) {
+    while (frameCounter <= 10) {
       const pinsCopy = pins.slice();
-      if (isFinalFrame(frameCounter) && pinCounter) {
+      if (isFinalFrame(frameCounter)) {
         if (isSpare(pins[frameCounter][pinCounter - 1], roll) || isStrike(roll)) {
           pinCount = 10;
           if (pinCounter === 2) gameOver = true;
@@ -39,23 +39,7 @@ export default function ScoreBoard() {
           hasResetFrame = true;
         }
       }
-
-      const previousThrows = pins.flat().slice(-2);
-      const previousThrow = pins[frameCounter - 1];
-      // update score if previous frame was a spare
-      if (previousThrow && isSpare(previousThrow[0], previousThrow[1]) && !frameScores[frameCounter - 1]) {
-        updateScore(10 + roll);
-        // update score if previous frame was a strike
-      } else if (previousThrows[1] && isStrike(previousThrows[0])) {
-        const bonusTotal = 10 + previousThrows[1] + roll;
-        updateScore(bonusTotal);
-      } else {
-        const frameTotal = pins[frameCounter][0] + roll;
-        if (frameTotal && frameTotal < 10) {
-          updateScore(frameTotal);
-        }
-      }
-
+      calculateScore(pins, frameCounter, roll, gameOver);
       pinsCopy[frameCounter][pinCounter] = roll;
       setScoreboard((prevState) => ({ ...prevState, pins: pinsCopy, pinCount, gameOver }));
       if (!hasResetFrame) incrementPinCounter();
@@ -65,12 +49,36 @@ export default function ScoreBoard() {
     }
   };
 
-  const updateScore = (frameTotal) => {
+  const calculateScore = (pins, frameCounter, roll, gameOver) => {
     const { frameScores, runningTotal } = scoreTracker;
-    const frameScoresCopy = frameScores.slice();
-    setScoreTracker((prevState) => ({ ...prevState, runningTotal: frameTotal + runningTotal, frameScores: [...frameScores, frameTotal + runningTotal] }))
-  };
-
+    const previousThrows = pins.flat().slice(-2);
+    const previousThrow = pins[frameCounter - 1];
+    let frameTotal = 0;
+    if (isFinalFrame(frameCounter) && gameOver) {
+      for (let i = 0; i < pins[frameCounter].length; i++) {
+        console.log(i, pins[frameCounter][i])
+        frameTotal += pins[frameCounter][i];
+      }
+      frameTotal += roll
+      setScoreTracker((prevState) => ({ ...prevState, runningTotal: frameTotal + runningTotal, frameScores: [...frameScores, frameTotal + runningTotal] }))
+    } else {
+      // update score if previous frame was a spare
+      if (previousThrow && isSpare(previousThrow[0], previousThrow[1]) && !frameScores[frameCounter - 1]) {
+        frameTotal = 10 + roll;
+        setScoreTracker((prevState) => ({ ...prevState, runningTotal: frameTotal + runningTotal, frameScores: [...frameScores, frameTotal + runningTotal] }))
+        // update score if previous frame was a strike
+      } else if (previousThrows[1] && isStrike(previousThrows[0])) {
+        frameTotal = 10 + previousThrows[1] + roll;
+        setScoreTracker((prevState) => ({ ...prevState, runningTotal: frameTotal + runningTotal, frameScores: [...frameScores, frameTotal + runningTotal] }))
+      } else {
+        frameTotal = pins[frameCounter][0] + roll;
+        if (frameTotal && frameTotal < 10) {
+          console.log("testing")
+          setScoreTracker((prevState) => ({ ...prevState, runningTotal: frameTotal + runningTotal, frameScores: [...frameScores, frameTotal + runningTotal] }))
+        }
+      }
+    }
+  }
 
   return { scoreboard, scoreTracker, takeTurn, setScoreboard }
 };
