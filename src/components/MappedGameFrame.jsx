@@ -19,8 +19,7 @@ export default function MappedGameFrame({ counter, scoreboard }) {
         frameIdx={index}
         pin1Idx={index * 2}
         pin2Idx={index * 2 + 1}
-        roll3={isTenthFrame(index) ? index * 2 + 2 : null}
-        pinI={counter}
+        pin3Idx={index * 2 + 3}
         scoreboard={scoreboard}
       />
     );

@@ -11,6 +11,7 @@ export default function GameFrame({
   scoreboard,
   pin1Idx,
   pin2Idx,
+  pin3Idx,
   frameIdx,
   roll2,
   roll3,
@@ -20,38 +21,29 @@ export default function GameFrame({
   const { pins, frames } = scoreboard;
 
   const renderScoreBoxes = () => {
-    if (frameIndex === 10) {
+    if (frameIdx === 9) {
       return (
         <>
-          <div className={styles.turn1}>
-            {pins[gameIndex * 2]}
-            {}
-          </div>
-          <div className={styles.turn2}>
-            {pins[frameIndex + gameIndex]}
-            {}
-          </div>
-          <div className={styles.turn3}>
-            {pins[frameIndex + gameIndex + 1]}
-            {}
-          </div>
+          {[...Array(3)].map((el, index) => (
+            <div key={uuid()} className={styles[`turn${index + 1}`]}>
+              {pins[frameIdx][index]}
+            </div>
+          ))}
         </>
       );
     } else {
       return (
         <>
-          {[...Array(2)].map((el, index) => {
-            return (
-              <div key={uuid()} className={styles[`turn${index + 1}`]}>
-                {index === 0 ? pins[frameIdx][index] : pins[frameIdx][index]}
-              </div>
-            );
-          })}
+          {[...Array(2)].map((el, index) => (
+            <div key={uuid()} className={styles[`turn${index + 1}`]}>
+              {pins[frameIdx][index]}
+            </div>
+          ))}
         </>
       );
     }
   };
-  console.log("frame Idx", frameIdx);
+
   return (
     <FrameContainer frameIndex={frameIndex} frameTitle={`Frame ${frameIndex}`}>
       <div id={`score${frameIndex}`} className={styles.scoreContainer}>

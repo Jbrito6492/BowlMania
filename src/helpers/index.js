@@ -12,15 +12,15 @@ export function isSpare(roll1, roll2) {
 
 export function getPinCount(value) {
   return 10 - value;
+}
+
+export function isFinalFrame(frame) {
+  return frame === 9 ? true : false;
 };
 
-export function isFinalFrame(framesArray) {
-  return (framesArray.length === 9 ? true : false);
-};
+// export function isGameOver(throw) {
 
-export function calculateCurrentFrame(counter) {
-  return Math.floor(counter / 2) + 1;
-};
+// };
 
 
 
