@@ -6,7 +6,6 @@ import { calculateCurrentFrame, isNewFrame } from "../helpers";
 
 export default function GameFrame({
   frameIndex,
-  gameIndex,
   counter,
   scoreboard,
   pin1Idx,
@@ -15,6 +14,7 @@ export default function GameFrame({
   frameIdx,
   roll2,
   roll3,
+  frameScores,
 }) {
   const [isActive, setIsActive] = useState(false);
   const [content, setContent] = useState(null);
@@ -49,6 +49,7 @@ export default function GameFrame({
       <div id={`score${frameIndex}`} className={styles.scoreContainer}>
         {renderScoreBoxes()}
       </div>
+      {frameScores[frameIdx]}
     </FrameContainer>
   );
 }
