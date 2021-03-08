@@ -6,7 +6,10 @@
   grid-template-areas: ". btn7 . btn8 . btn9 . btn10 ." ". . btn4 . btn5 . btn6 . ." ". . . btn2 . btn3 . . ." ". . . . btn1 . . . btn0";
   justify-content: center;
   align-items: center;
-  background: cornflowerblue;
+  width: 60vw;
+  margin-top: 50px;
+  color: #FFFFFF;
+  text-align: center;
 }
 
 .btn0 {
@@ -58,4 +61,12 @@
   width: 3.5em;
   height: 3.5em;
   font-size: 1em;
+  background-color: rgb(255, 173, 0, .9);
+  color: black;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(179, 12, 58, .5);
+  color: white;
 }

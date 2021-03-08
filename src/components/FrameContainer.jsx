@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../css/frame.css";
 
-export default function FrameContainer({ frameTitle, frameIdx, children }) {
+export default function FrameContainer({ frameTitle, children }) {
   let activeClassName;
   if (frameTitle === "Player Name") {
     activeClassName = styles.playerNameContainer;

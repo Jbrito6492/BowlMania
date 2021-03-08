@@ -5,9 +5,11 @@ p {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  height: 100%;
+  width: 80vw;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   text-align: center;
   flex: 1;
 }
@@ -15,16 +17,15 @@ p {
 .title {
   text-align: center;
   height: 4em;
-  width: 100%;
   background-color: rgb(0, 0, 0, 6);
   color: #FFFFFF;
+  width: 100%;
 }
 
 .playerNameContainer {
   border-top-left-radius: 15px;
   background-color: rgb(0, 0, 0, 6);
   color: #FFFFFF;
-  width: 100%;
   text-align: center;
   height: 4em;
 }
@@ -33,28 +34,36 @@ p {
   border-top-right-radius: 15px;
   background-color: rgb(0, 0, 0, 6);
   color: #FFFFFF;
-  width: 100%;
-  text-align: center;
   height: 4em;
 }
 
 .scoreContainer {
   display: flex;
-  height: 2.5em;
+  align-items: center;
   justify-content: space-evenly;
-  align-content: stretch;
+  text-align: center;
 }
 
 .childrenContainer {
   min-height: 8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .turn0 {
   width: 2.5em;
+  height: 2.5em;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .turn1, .turn2 {
   width: 2.5em;
+  height: 2.5em;
+  text-align: center;
   border-left: solid 0.0123em;
   border-bottom: solid 0.0123em;
+  margin-bottom: 30px;
 }

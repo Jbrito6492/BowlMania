@@ -13,9 +13,9 @@ export default function GameFrame({ scoreboard, frameIdx, frameScores }) {
       return (
         <>
           {[...Array(3)].map((el, index) => (
-            <div key={uuid()} className={styles[`turn${index}`]}>
+            <span key={uuid()} className={styles[`turn${index}`]}>
               {pins[frameIdx][index]}
-            </div>
+            </span>
           ))}
         </>
       );
@@ -23,9 +23,9 @@ export default function GameFrame({ scoreboard, frameIdx, frameScores }) {
       return (
         <>
           {[...Array(2)].map((el, index) => (
-            <div key={uuid()} className={styles[`turn${index}`]}>
+            <span key={uuid()} className={styles[`turn${index}`]}>
               {pins[frameIdx][index]}
-            </div>
+            </span>
           ))}
         </>
       );
@@ -33,9 +33,9 @@ export default function GameFrame({ scoreboard, frameIdx, frameScores }) {
   };
 
   return (
-    <FrameContainer frameTitle={`Frame ${frameIdx + 1}`} frameIdx={frameIdx}>
+    <FrameContainer frameTitle={`Frame ${frameIdx + 1}`}>
       <div className={styles.scoreContainer}>{renderScoreBoxes()}</div>
-      {frameScores[frameIdx]}
+      <div>{frameScores[frameIdx]}</div>
     </FrameContainer>
   );
 }
