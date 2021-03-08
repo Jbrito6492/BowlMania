@@ -6,15 +6,15 @@ export default function FrameContainer({ frameTitle, frameIdx, children }) {
   if (frameTitle === "Player Name") {
     activeClassName = styles.playerNameContainer;
   } else if (frameTitle.substring(0, 5) === "Frame") {
-    activeClassName = styles[`frame${frameIdx}`];
+    activeClassName = styles.title;
   } else {
     activeClassName = styles.totalScoreContainer;
   }
 
   return (
     <>
-      <div className={`${styles.container} ${activeClassName}`}>
-        <div className={styles.title}>
+      <div className={styles.container}>
+        <div className={activeClassName}>
           <p>{frameTitle}</p>
         </div>
         <div className={styles.childrenContainer}>{children}</div>
