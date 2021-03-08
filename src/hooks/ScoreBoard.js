@@ -73,6 +73,7 @@ export default function ScoreBoard() {
       } else if (previousThrows[1] && isStrike(previousThrows[0])) {
         let currentFrame;
         frameTotal = 10 + previousThrows[1] + roll;
+        // if the last 2 throws were strikes, board must be updated twice, once for previous frame and once for current frame
         if (pins[frameCounter][0] && pins[frameCounter][0] + roll < 10) {
           currentFrame = pins[frameCounter][0] + roll;
           setScoreTracker((prevState) => ({ ...prevState, runningTotal: frameTotal + runningTotal + currentFrame, frameScores: [...frameScores, frameTotal + runningTotal, frameTotal + runningTotal + currentFrame] }))
