@@ -16,15 +16,19 @@ export default function ScoreBoard() {
     frameScores: [],
   });
 
+  // main method
   const takeTurn = (roll) => {
     const { frameScores } = scoreTracker;
     const { pins } = scoreboard;
     let pinCount = 10 - roll;
     let hasResetFrame = false;
     let gameOver = false;
+    // loop until frame count is 10
     while (frameCounter <= 10) {
       const pinsCopy = pins.slice();
+      // handle frame 9 logic
       if (isFinalFrame(frameCounter)) {
+        // reset pin count if spare or strike
         if (isSpare(pins[frameCounter][pinCounter - 1], roll) || isStrike(roll)) {
           pinCount = 10;
           if (pinCounter === 2) gameOver = true;
@@ -32,6 +36,7 @@ export default function ScoreBoard() {
           if (pinCounter === 1) gameOver = true;
         }
       } else {
+        // if pinCounter is 1 or roll is a strike reset the pin count and increment frame
         if (pinCounter === 1 || isStrike(roll)) {
           pinCount = 10;
           resetPinCount();
