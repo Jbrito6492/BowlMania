@@ -43,8 +43,6 @@ export default function ScoreBoard() {
       pinsCopy[frameCounter][pinCounter] = roll;
       setScoreboard((prevState) => ({ ...prevState, pins: pinsCopy, pinCount, gameOver }));
       if (!hasResetFrame) incrementPinCounter();
-      console.log(scoreTracker)
-      console.log(scoreboard)
       break;
     }
   };
