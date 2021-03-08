@@ -42,7 +42,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Score Tracker',
+      title: 'BowlMania',
       template: `${SRC_DIR}/templates/index.ejs`,
       favicon: path.join(__dirname, 'public', 'assets', 'favicon.ico')
     }),
