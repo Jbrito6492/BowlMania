@@ -58,7 +58,7 @@
 2. npm start
 ```
 
-4. navigate to http://localhost5000
+4. navigate to http://localhost:5000/
 
 [Back To The Top](#read-me)
 
