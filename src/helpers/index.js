@@ -12,15 +12,27 @@ export function isSpare(roll1, roll2) {
 
 export function getPinCount(value) {
   return 10 - value;
-}
+};
 
 export function isFinalFrame(frame) {
   return frame === 9 ? true : false;
 };
 
-// export function isGameOver(throw) {
+export const getInitStateScoreboard = () => (
+  {
+    pins: [[], [], [], [], [], [], [], [], [], []],
+    pinCount: 10,
+    gameOver: false,
+    runningTotal: 0,
+  }
+);
 
-// };
+export const getInitStateScoreTracker = () => (
+  {
+    runningTotal: 0,
+    frameScores: [],
+  }
+);
 
 
 

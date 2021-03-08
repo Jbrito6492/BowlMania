@@ -4,15 +4,20 @@ import MappedGameFrame from "./MappedGameFrame.jsx";
 import TotalScoreFrame from "./TotalScoreFrame.jsx";
 import NumberPad from "./NumberPad.jsx";
 import ScoreBoardHook from "../hooks/ScoreBoard";
+import { getInitStateScoreboard, getInitStateScoreTracker } from "../helpers";
 import styles from "../../css/scoreboard.css";
 
 export default function ScoreBoard({ playerName, setState }) {
   const {
     scoreboard,
     scoreTracker,
+    setScoreTracker,
+    resetPinCount,
+    resetFrameCount,
     takeTurn,
     setScoreboard,
   } = ScoreBoardHook();
+
   const handleNameChange = (e) => {
     e.preventDefault();
     setState(e.target.value);
@@ -20,8 +25,10 @@ export default function ScoreBoard({ playerName, setState }) {
 
   const handleRestart = (e) => {
     e.preventDefault();
-    setCounter(0);
-    setScoreboard({ pins: [], totalScore: [], pinCount: 10, gameOver: false });
+    resetFrameCount();
+    resetPinCount();
+    setScoreboard(getInitStateScoreboard());
+    setScoreTracker(getInitStateScoreTracker());
   };
 
   return (

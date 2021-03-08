@@ -3,7 +3,7 @@ import { isStrike, isSpare, isNewFrame, getPinCount, isFinalFrame } from "../hel
 import CounterHook from "./Counter";
 
 export default function ScoreBoard() {
-  const { pinCounter, frameCounter, incrementPinCounter, incrementFrameCounter, resetPinCount } = CounterHook();
+  const { pinCounter, frameCounter, incrementPinCounter, incrementFrameCounter, resetPinCount, resetFrameCount } = CounterHook();
   const [scoreboard, setScoreboard] = useState({
     pins: [[], [], [], [], [], [], [], [], [], []],
     pinCount: 10,
@@ -79,5 +79,5 @@ export default function ScoreBoard() {
     }
   }
 
-  return { scoreboard, scoreTracker, takeTurn, setScoreboard }
+  return { scoreboard, scoreTracker, takeTurn, setScoreboard, setScoreTracker, resetFrameCount, resetPinCount }
 };

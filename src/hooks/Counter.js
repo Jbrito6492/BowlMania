@@ -20,5 +20,5 @@ export default function Counter() {
     setFrameCounter(0);
   }
 
-  return { pinCounter, frameCounter, incrementPinCounter, incrementFrameCounter, resetPinCount }
+  return { pinCounter, frameCounter, incrementPinCounter, incrementFrameCounter, resetPinCount, resetFrameCount }
 }
