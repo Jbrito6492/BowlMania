@@ -47,7 +47,8 @@
 ## Installation
 
 1. clone repository onto local machine
-2. open your terminal in the root directory of project and run the following in sequential order:
+2. open your terminal
+3. go to project's root directory and run the following commands in sequential order:
 
 ```html
 1. npm install
@@ -57,7 +58,7 @@
 2. npm start
 ```
 
-3. navigate to http://localhost5000
+4. navigate to http://localhost5000
 
 [Back To The Top](#read-me)
 
