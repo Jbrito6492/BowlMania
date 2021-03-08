@@ -13,11 +13,19 @@ export default function PlayerForm({ state, setState }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Please Enter Player Name:
-        <input type="text" name="playerName" onChange={handleChange} required />
-      </label>
-      <input className={styles.btn} type="submit" value="Submit" />
+      <div className={styles.form}>Welcome to BowlMania</div>
+      <div className={styles.main}>
+        <label>
+          Please Enter Player Name:
+          <input
+            type="text"
+            name="playerName"
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <input className={styles.btn} type="submit" value="Submit" />
+      </div>
     </form>
   );
 }
