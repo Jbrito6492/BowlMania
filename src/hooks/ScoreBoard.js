@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { isStrike, isSpare, isNewFrame, getPinCount, isFinalFrame } from "../helpers";
+import { isStrike, isSpare, isNewFrame, isFinalFrame } from "../helpers";
 import CounterHook from "./Counter";
 
 export default function ScoreBoard() {

@@ -1,8 +1,15 @@
 import React from "react";
 import uuid from "react-uuid";
+import ResetButton from "./ResetButton.jsx";
 import styles from "../../css/numberpad.css";
 
-export default function NumberPad({ takeTurn, pinCount, gameOver }) {
+export default function NumberPad({
+  takeTurn,
+  pinCount,
+  gameOver,
+  handleRestart,
+}) {
+  let hideNumberpad = gameOver ? true : false;
   const handleClick = (e) => {
     e.preventDefault();
     const { value } = e.target;
@@ -24,5 +31,10 @@ export default function NumberPad({ takeTurn, pinCount, gameOver }) {
       </div>
     );
   });
-  return <div className={styles.container}>{numberPad}</div>;
+  return (
+    <div className={hideNumberpad ? styles.hidden : null}>
+      <div className={styles.container}>{numberPad}</div>
+      <ResetButton handleRestart={handleRestart} />
+    </div>
+  );
 }
