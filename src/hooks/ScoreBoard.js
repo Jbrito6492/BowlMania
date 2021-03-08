@@ -71,8 +71,14 @@ export default function ScoreBoard() {
         setScoreTracker((prevState) => ({ ...prevState, runningTotal: frameTotal + runningTotal, frameScores: [...frameScores, frameTotal + runningTotal] }))
         // update score if previous frame was a strike
       } else if (previousThrows[1] && isStrike(previousThrows[0])) {
+        let currentFrame;
         frameTotal = 10 + previousThrows[1] + roll;
-        setScoreTracker((prevState) => ({ ...prevState, runningTotal: frameTotal + runningTotal, frameScores: [...frameScores, frameTotal + runningTotal] }))
+        if (pins[frameCounter][0] && pins[frameCounter][0] + roll < 10) {
+          currentFrame = pins[frameCounter][0] + roll;
+          setScoreTracker((prevState) => ({ ...prevState, runningTotal: frameTotal + runningTotal + currentFrame, frameScores: [...frameScores, frameTotal + runningTotal, frameTotal + runningTotal + currentFrame] }))
+        } else {
+          setScoreTracker((prevState) => ({ ...prevState, runningTotal: frameTotal + runningTotal, frameScores: [...frameScores, frameTotal + runningTotal] }))
+        }
       } else {
         frameTotal = pins[frameCounter][0] + roll;
         if (frameTotal < 10) {
