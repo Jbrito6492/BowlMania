@@ -1,6 +1,6 @@
 # Read Me
 
-<!-- ![](README.gif) -->
+![](README.gif)
 
 > Welcome to BowlMania, an application for you to keep score as you bowl!
 
