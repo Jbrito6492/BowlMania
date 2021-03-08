@@ -10,9 +10,7 @@ export default function MappedGameFrame({ scoreboard, scoreTracker }) {
     return (
       <GameFrame
         key={uuid()}
-        frameIndex={index + 1}
         frameScores={frameScores}
-        gameIndex={index}
         frameIdx={index}
         pin1Idx={index * 2}
         pin2Idx={index * 2 + 1}

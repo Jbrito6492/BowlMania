@@ -29,14 +29,18 @@ p {
   width: 100%;
 }
 
-.frame0 {
+.playerNameContainer {
   border-bottom-left-radius: 0.3em;
   border-top-left-radius: 0.3em;
   border-left: solid 0.06em;
 }
 
+.frame0, .frame1, .frame2, .frame3, .frame4, .frame5, .frame6, .frame7, .frame8, .frame9 {
+  border-left: solid 0.03125em;
+}
+
 .frame1 {
-  border-left: solid 0.06em;
+  border-left: solid 0.03125em;
 }
 
 .frame2 {
@@ -71,11 +75,7 @@ p {
   border-left: solid 0.03125em;
 }
 
-.frame10 {
-  border-left: solid 0.03125em;
-}
-
-.frame11 {
+.totalScoreContainer {
   border-bottom-right-radius: 0.3em;
   border-top-right-radius: 0.3em;
   border-left: solid 0.03125em;
@@ -93,17 +93,11 @@ p {
   min-height: 8em;
 }
 
-.turn1 {
+.turn0 {
   width: 2.5em;
 }
 
-.turn2 {
-  width: 2.5em;
-  border-left: solid 0.0123em;
-  border-bottom: solid 0.0123em;
-}
-
-.turn3 {
+.turn1, .turn2 {
   width: 2.5em;
   border-left: solid 0.0123em;
   border-bottom: solid 0.0123em;

@@ -18,11 +18,6 @@ export default function ScoreBoard({ playerName, setState }) {
     setScoreboard,
   } = ScoreBoardHook();
 
-  const handleNameChange = (e) => {
-    e.preventDefault();
-    setState(e.target.value);
-  };
-
   const handleRestart = (e) => {
     e.preventDefault();
     resetFrameCount();
@@ -34,13 +29,9 @@ export default function ScoreBoard({ playerName, setState }) {
   return (
     <div className={styles.container}>
       <div className={styles.scoreboard}>
-        <PlayerInfoFrame frameIndex={0} playerName={playerName} />
-        <MappedGameFrame
-          scoreTracker={scoreTracker}
-          scoreboard={scoreboard}
-          scoreTracker={scoreTracker}
-        />
-        <TotalScoreFrame scoreTracker={scoreTracker} frameIndex={11} />
+        <PlayerInfoFrame playerName={playerName} />
+        <MappedGameFrame scoreTracker={scoreTracker} scoreboard={scoreboard} />
+        <TotalScoreFrame scoreTracker={scoreTracker} />
       </div>
       <div>
         <NumberPad
@@ -52,9 +43,6 @@ export default function ScoreBoard({ playerName, setState }) {
       <>
         <button className={styles.btn} onClick={handleRestart}>
           restart
-        </button>
-        <button className={styles.btn} onClick={handleNameChange}>
-          change name
         </button>
       </>
     </div>
