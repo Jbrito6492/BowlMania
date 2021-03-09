@@ -6,7 +6,7 @@
 
 ---
 
-### Table of Contents
+## Table of Contents
 
 - [Description](#description)
 - [How To Use](#how-to-use)
@@ -14,11 +14,11 @@
 
 ---
 
-## Description
+### Description
 
 > BowlMania is a single-page React application which allows the user to keep track of their score while bowling
 
-### Tech Stack
+## Tech Stack
 
 - React.js
 - Node.js
@@ -28,13 +28,13 @@
 
 ---
 
-## How To Use
+### How To Use
 
 1. follow installation instructions below
 2. enter user name on form
 3. submit scores as you go!
 
-### Scoring
+## Scoring
 
 > a strike earns 10 points plus the sum of your next two shots
 
@@ -44,14 +44,18 @@
 
 > user is granted an extra throw if a spare or strike is thrown in the 10th round
 
-## Installation
+### Installation
 
 1. clone repository onto local machine
 2. open your terminal
 3. go to project's root directory and run the following commands in sequential order:
 
 ```html
-1. npm install 2. npm start
+1. npm install
+```
+
+```html
+2. npm start
 ```
 
 4. navigate to http://localhost:5000/
