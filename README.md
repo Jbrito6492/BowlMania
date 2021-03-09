@@ -51,9 +51,7 @@
 3. go to project's root directory and run the following commands in sequential order:
 
 ```html
-1. npm install
-<br />
-2. npm start
+1. npm install 2. npm start
 ```
 
 4. navigate to http://localhost:5000/
