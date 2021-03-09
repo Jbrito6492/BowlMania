@@ -53,7 +53,6 @@ export default function ScoreBoard() {
     const previousFrame = pins[frameCounter - 1];
 
     let frameTotal = 0;
-    let previousFrameTotal = 0;
     let bonus = 0;
 
     // totals current frame
