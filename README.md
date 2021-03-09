@@ -52,9 +52,7 @@
 
 ```html
 1. npm install
-```
-
-```html
+<br />
 2. npm start
 ```
 
