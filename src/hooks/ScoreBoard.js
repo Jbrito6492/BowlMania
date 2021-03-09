@@ -87,7 +87,6 @@ export default function ScoreBoard() {
     } else {
       // if open frame update total
       if (frameTotal < 10 && pins[frameCounter].length) {
-        console.log("testing")
         setScoreTracker((prevState) => ({ ...prevState, runningTotal: frameTotal + runningTotal, frameScores: [...frameScores, frameTotal + runningTotal] }));
       }
     }
