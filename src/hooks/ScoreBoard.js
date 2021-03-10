@@ -8,7 +8,6 @@ export default function ScoreBoard() {
     pins: [[], [], [], [], [], [], [], [], [], []],
     pinCount: 10,
     gameOver: false,
-    runningTotal: 0,
   });
 
   const [scoreTracker, setScoreTracker] = useState({
