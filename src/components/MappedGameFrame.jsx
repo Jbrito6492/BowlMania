@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import GameFrame from "./GameFrame.jsx";
 import { calculateCurrentFrame, isNewFrame } from "../helpers";
 import uuid from "react-uuid";
