@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import FrameContainer from "./FrameContainer.jsx";
 import uuid from "react-uuid";
 import styles from "../../css/frame.css";
 
 export default function GameFrame({ scoreboard, frameIdx, frameScores }) {
-  const [isActive, setIsActive] = useState(false);
-  const [content, setContent] = useState(null);
-  const { pins, frames } = scoreboard;
+  const { pins } = scoreboard;
 
   const renderScoreBoxes = () => {
     if (frameIdx === 9) {
