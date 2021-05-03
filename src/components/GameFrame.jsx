@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import FrameContainer from "./FrameContainer.jsx";
 import uuid from "react-uuid";
 import styles from "../../css/frame.css";
